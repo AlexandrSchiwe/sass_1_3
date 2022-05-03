@@ -1,0 +1,46 @@
+@import "_generals.scss";
+
+@import "_mixin.scss";
+
+@import "_variables.scss";
+
+// sass --watch assets/scss/main.scss assets/css/styles.css
+
+.container {
+    width: 80%;
+    height: 30vh;
+    border: 2px solid grey;
+    margin: 5vh;
+    position: relative;
+
+    div {
+        @include ball;
+    }
+
+    .ball1 {
+        @include slide(0, 0, red);
+        @include anim(2s, 0);
+    }
+
+    .ball2 {
+        @include slide(0, 35%, yellow);
+        @include anim(2s, 1s);
+    }
+
+    .ball3 {
+        @include slide(0, 70%, blue);
+        @include anim(1s, 3s);
+    }
+}
+
+@keyframes travel {
+    0% {
+        left: 0;
+        transform: translateX(0);
+    }
+    100% {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
